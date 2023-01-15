@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DDB Monthly Plan Self-Served Tool</title>
+    <!-- setting up some stylesheet based on Bulma website -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  </head>
+
+  <!-- Top of the page -->
+  <!-- containers will help everything line up nicely -->
+  <section class="hero is-dark is-small">
+    <div class="hero-body">
+      <p class="title">
+        DDB Monthly Plan Self-Served Tool</p>
+      <p class="subtitle">
+        Please follow instructions below.
+      </p>
+
+      <form role="form", method='POST', action="/">
+
+        <!-- Requesting BSafe username -->
+        <div class="form-group">
+          <label for="user">Enter Username: </label>
+          <input type="text" name="user" class="form-control" id="user-box" placeholder="e.g. u123456" style="max-width: 500px;" autofocus required value="" required >
+          <!-- <button type="submit" class="btn btn-default">Submit</button> -->
+        </div>
+
+        <!-- Requesting BSafe password -->
+        <br>
+        <div class="form-group">
+          <!-- <label for="postcode">Enter the origin and destination cities: </label> -->
+          <label for="password">Enter password:    </label>
+          <input type="password" name="password" class="form-control" id="password-box" placeholder="BSafe password..." autofocus required value="" required> <!-- style="text-indent: 5em;" -->
+        </div>
+
+        <!-- Submit button -->
+        <br>
+        <button type="submit" id="form-submit" name ="form-submit" class="btn btn-default" value="one">Press here to connect to OAW/ICW</button>
+
+      </form>
+      <p class="help is-success">
+        {{status_message}}
+      </p>
+    </div>
+   </section>
+
+
+   <!-- HTML snippet below will show after section above -->
+
+   <!-- <body> -->
+  <section class="section">
+    <div class="container">
+      <div class="content is-large"></div>
+        <!-- flask uses the Jinja two engine, which uses double curly bracket to place data from our app.py to the html file-->
+        <!-- content div let you control the size and other features inside the div -->
+        <!-- Requesting beginning date for historical data extraction -->
+        <h4>Step 1: Select historical data</h4>
+
+        <form role="form", method='POST', action="/">
+          <div class="form-group">
+            <!-- <label for="postcode">Enter the origin and destination cities: </label> -->
+            <label for="historical_start_of_week">Enter start of week:    </label>
+            <input type="text" name="historical_start_of_week" class="form-control" id="historical_start_of_week-box" placeholder="e.g. 16/09/2019" autofocus required value="" required> <!-- style="text-indent: 5em;" --> <!--e.g. 18/09/2019-->
+          </div>
+
+          <!-- Submit button -->
+          <br>
+          <button type="submit" id="form2-submit" name ="form2-submit" class="btn btn-default"  value="two">Submit</button>
+        </form>
+
+        <p class="help is-success">
+          {{data_extraction_info}}
+        </p>
+        
+        <!-- insert horizontal line -->
+        <!-- data will automatically be extracted. We just need to log process -->
+        <hr>
+        <h4>Step 2: Extract historical data</h4>
+
+        <!-- data will automatically be preprocessed. We just need to log process -->
+        <hr>
+        <h4>Step 3: Pre-process historical data</h4>
+
+        <!-- Create form to upload .txt file -->
+        <hr>
+        <h4>Step 4: Select future schedule</h4>
+
+        <!-- data will automatically be preprocessed. We just need to log process -->
+        <hr>
+        <h4>Step 5: Pre-process future schedule</h4>
+        
+        <hr>
+        <h4>Step 6: Output future with bags numbers</h4>
+    
+    </div>
+  </section>
+    <!-- </body> -->
+</html>
+
+<!-- adding the footer -->
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>DDB Monthly Plan Model</strong> by Insight & Innovation. Owner: Pep Marti Mascaro Monserrat.  
+    </p>
+  </div>
+</footer>
